@@ -26,7 +26,7 @@ body {
   backdrop-filter: blur(10px);
 }
 
-h1 {
+.one {
   color: #ffffff;
   margin-bottom: 12px;
   font-size: 32px;
@@ -35,6 +35,11 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+.two{
+  
+  font-size: 76px;
+  font-weight: 800;
 }
 
 .subtitle {
