@@ -4,26 +4,125 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QR Code Generator</title>
+    <meta name="description" content="Generate beautiful QR codes instantly from any text or URL. Free, fast, and easy to download." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Animated background orbs -->
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+
     <div class="container">
-      <h1 class="one"><span class="two"> Qr</span> Generator</h1>
-      <p class="subtitle">Generate professional QR codes in seconds</p>
-      <input type="text" id="qrText" placeholder="Enter text or URL" />
-      <div id="qrBox">
-        <img
-          id="qrImage"
-          src="/img/icons8-paint-bucket-with-qr-96.png"
-          alt="QR Code"
-        />
+      <!-- Header -->
+      <div class="header">
+        <!-- <div class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2.5"/>
+            <rect x="6" y="6" width="8" height="8" rx="1" fill="currentColor"/>
+            <rect x="22" y="2" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2.5"/>
+            <rect x="26" y="6" width="8" height="8" rx="1" fill="currentColor"/>
+            <rect x="2" y="22" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2.5"/>
+            <rect x="6" y="26" width="8" height="8" rx="1" fill="currentColor"/>
+            <rect x="22" y="22" width="5" height="5" rx="0.5" fill="currentColor"/>
+            <rect x="29" y="22" width="9" height="5" rx="0.5" fill="currentColor"/>
+            <rect x="22" y="29" width="9" height="5" rx="0.5" fill="currentColor"/>
+            <rect x="33" y="29" width="5" height="9" rx="0.5" fill="currentColor"/>
+          </svg>
+        </div> -->
+        <h1 class="title"><span class="title-accent">Qr</span> Generator</h1>
+        <p class="subtitle">Convert any text or URL into a scannable QR code instantly</p>
       </div>
+
+      <!-- Input Section -->
+      <div class="input-section">
+        <div class="input-wrapper">
+          <label for="qrText" class="input-label">Text or URL</label>
+          <div class="input-container">
+            <svg class="input-icon" viewBox="0 0 20 20" fill="none">
+              <path d="M13 7H7m6 4H7m3 4H7M5 3h10a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <input type="text" id="qrText" placeholder="https://example.com or any text…" autocomplete="off" />
+            <button class="clear-btn" id="clearBtn" title="Clear input" aria-label="Clear input">
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+          </div>
+          <div class="input-meta">
+            <span class="char-count" id="charCount">0 characters</span>
+          </div>
+        </div>
+
+        <!-- Size Selector -->
+        <div class="size-selector">
+          <label class="input-label">QR Size</label>
+          <div class="size-options">
+            <button class="size-btn" data-size="150" aria-label="Small size">S</button>
+            <button class="size-btn active" data-size="200" aria-label="Medium size">M</button>
+            <button class="size-btn" data-size="250" aria-label="Large size">L</button>
+            <button class="size-btn" data-size="300" aria-label="Extra large size">XL</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- QR Preview -->
+      <div class="qr-preview-container">
+        <div id="qrBox" class="qr-box">
+          <!-- Placeholder state -->
+          <div class="qr-placeholder" id="qrPlaceholder">
+            <div class="placeholder-icon">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="5" width="30" height="30" rx="3" stroke="currentColor" stroke-width="3" stroke-dasharray="6 3"/>
+                <rect x="12" y="12" width="16" height="16" rx="1.5" fill="currentColor" opacity="0.3"/>
+                <rect x="45" y="5" width="30" height="30" rx="3" stroke="currentColor" stroke-width="3" stroke-dasharray="6 3"/>
+                <rect x="52" y="12" width="16" height="16" rx="1.5" fill="currentColor" opacity="0.3"/>
+                <rect x="5" y="45" width="30" height="30" rx="3" stroke="currentColor" stroke-width="3" stroke-dasharray="6 3"/>
+                <rect x="12" y="52" width="16" height="16" rx="1.5" fill="currentColor" opacity="0.3"/>
+                <rect x="45" y="45" width="10" height="10" rx="1" fill="currentColor" opacity="0.3"/>
+                <rect x="58" y="45" width="17" height="10" rx="1" fill="currentColor" opacity="0.3"/>
+                <rect x="45" y="58" width="17" height="10" rx="1" fill="currentColor" opacity="0.3"/>
+                <rect x="65" y="58" width="10" height="17" rx="1" fill="currentColor" opacity="0.3"/>
+              </svg>
+            </div>
+            <p class="placeholder-text">Your QR code will appear here</p>
+          </div>
+          <!-- QR Image -->
+          <img id="qrImage" class="qr-image hidden" src="" alt="Generated QR Code" />
+          <!-- Loading state -->
+          <div class="qr-loading hidden" id="qrLoading">
+            <div class="spinner"></div>
+            <p>Generating…</p>
+          </div>
+        </div>
+        <!-- Corner decorations -->
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+      </div>
+
+      <!-- Action Buttons -->
       <div class="button-group">
-        <button id="generateBtn">Generate QR Code</button>
-        <a id="downloadBtn" href="#" download="qrcode.png"
-          >↓ Download QR Code</a
-        >
+        <button id="generateBtn" class="btn btn-primary">
+          <svg class="btn-icon" viewBox="0 0 20 20" fill="none">
+            <path d="M4 4h5v5H4zm7 0h5v5h-5zM4 11h5v5H4zm7 0h2v2h-2zm3 0h2v2h-2zm-3 3h2v2h-2zm3-3v2h2v-2h-2zm0 3h-3v2h5v-2h-2z" fill="currentColor"/>
+          </svg>
+          Generate QR Code
+        </button>
+        <a id="downloadBtn" href="#" class="btn btn-secondary hidden" aria-label="Download QR Code">
+          <svg class="btn-icon" viewBox="0 0 20 20" fill="none">
+            <path d="M3 17h14M10 3v10m0 0l-4-4m4 4l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Download PNG
+        </a>
       </div>
+
+      <!-- Footer tip -->
+      <p class="footer-tip">💡 Press <kbd>Enter</kbd> to generate quickly</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
