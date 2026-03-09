@@ -1,42 +1,31 @@
-# 🌤️ Your Personal Weather App
+# QR Code Generator
 
-A simple and responsive **Weather App** built using **HTML, CSS, and JavaScript**, powered by the **OpenWeatherMap API**.  
-It displays live weather data such as **temperature, humidity, wind speed, and conditions** for any city you search.
+A sleek, premium‑styled QR code generator built with vanilla HTML, CSS, and JavaScript. It features:
 
----
+- **Glass‑morphism UI** with animated background orbs and subtle micro‑animations.
+- **Dynamic size selector** (S – XL) and real‑time character counter.
+- **Clear button** to reset the input instantly.
+- **Loading spinner** while the QR image is being generated.
+- **Download button** that fetches the QR image as a PNG.
+- **Responsive layout** that works beautifully on mobile and desktop.
 
-## 🧠 Features
-- 🌍 Search weather by city name  
-- 🌡 Displays temperature in Celsius  
-- 💨 Shows humidity and wind speed  
-- ☁️ Dynamic weather icons for different conditions (Rain, Clear, Clouds, etc.)  
-- ⚠️ Smart error handling (shows “Invalid City” notifier)  
-- 🎨 Fully responsive and animated design  
-- 🔄 Default weather display for Delhi on load  
+## Demo
+Open [index.html](file:///d:/project/Qr-Generator/index.html) in a browser. Type any text or URL, pick a size, and click **Generate QR Code**. Once the QR appears, click **Download PNG** to save it.
 
----
+## Installation & Usage
+1. Clone or copy the repository.
+2. Ensure the three files are in the same folder:
+   - [index.html](file:///d:/project/Qr-Generator/index.html)
+   - [style.css](file:///d:/project/Qr-Generator/style.css)
+   - [script.js](file:///d:/project/Qr-Generator/script.js)
+3. Open [index.html](file:///d:/project/Qr-Generator/index.html) in a modern browser (Chrome, Edge, Firefox, Safari).
 
-## 🛠️ Tech Stack
-- **HTML5** — Structure  
-- **CSS3** — Styling & Animations  
-- **JavaScript (ES6)** — Logic and API integration  
-- **OpenWeatherMap API** — Live weather data  
+No build step or dependencies are required – everything runs client‑side.
 
----
+## Customisation
+- **Colors & gradients** – edit the CSS variables in [style.css](file:///d:/project/Qr-Generator/style.css) under `:root`.
+- **QR size options** – modify the `data-size` attributes on the size buttons in [index.html](file:///d:/project/Qr-Generator/index.html) and adjust the `selectedSize` handling in [script.js](file:///d:/project/Qr-Generator/script.js).
+- **Background animation** – tweak the `@keyframes orb-drift` animation in [style.css](file:///d:/project/Qr-Generator/style.css).
 
-
-
----
-
-## ⚙️ Setup & Usage
-1. **Clone the repository**
-   ```bash
-<<<<<<< HEAD
-   git clone https://github.com/thanosda/Weather-App.git
-=======
-   git clone https://github.com/Thanosda/Weather-App.git
-
-📸 ScreenShot:
-
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2e5822f9-687b-4819-a917-61f83564b7f9" />
->>>>>>> 90811a2f067c365ca4ce9552e82ee25a6124e2a6
+## License
+MIT – feel free to use, remix, and share.
